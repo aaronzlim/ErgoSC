@@ -14,6 +14,5 @@
 			"js": ["jquery-3.0.0.min.js", "split_calc.js"]
 		}]
 	},
-	"content_security_policy": "[default-src 'self'; script-src 'self']",
 	"icons": { "16": "icons/calculator-16.png", "128": "icons/calculator-128.png"}
 }
