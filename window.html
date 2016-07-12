@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Split Calculator</title>
+		<link rel="stylesheet" type="text/css" href="window.css">
+	</head>
+	<body>
+		<div id="header">
+			<h1>Split Calculator</h1>
+		</div>
+
+		<div id="section">
+			<br/>
+			<label for="minutes">Time:</label>
+			<input type="number" id="minutes" min="0" max="120" name="data" placeholder="6" align="left" autofocus> 
+			<font size="4">:</font>
+			<input type="number" id="seconds" min="0" max="59.99" name="data" placeholder="30.0" align="left" />
+			<br>
+			<br>
+			<label for="distance">Distance (meters):</label>
+			<input type="number" id="distance" min="0" name="data" placeholder="2000" align="left" />
+			<br/>
+			<br/>
+			<div id="weight_cell" style="display: none">
+				<label for="weight">Weight (lbs): </label>
+				<input type="number" id="weight" min="0" name="data" placeholder="175.0" align="left"/>
+			</div>
+		</div>
+		<div id="aside">
+			<p id="split">Split:</p>
+			<p id="weight_adjusted"></p>
+		</div>
+		<div id="footer">
+			<button id="calc_button" name="Button">Calculate</button>
+			<button id="reset_button" name="Button">Reset</button>
+			<br/>
+			<br/>
+			<div id="radio_buttons">
+				<input type="radio" id="weight_adjust_button" name="WeightAdjust" />
+				<label for="weight_adjust_button">Weight Adjust</label>
+				<span id="normalization" style="display: none">
+					<input type="radio" id="norm8" name="normalize" checked />
+					<label for="norm8">Normalize to 8+</label>
+					<input type="radio" id="norm4" name="normalize" />
+					<label for="norm4">Normalize to 4-</label>
+				</span>
+			</div>
+		</div>
+		<script src="jquery-3.0.0.min.js"></script>
+		<script src="split_calc.js"></script>
+	</body>
+</html>
