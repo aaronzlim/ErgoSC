@@ -1,3 +1,8 @@
 TO DO:
 
 Change icons
+
+Add a new tab that goes to a new page
+	- This page will have the weight adjusted comparison
+	  application that's been implemented in python, we
+	  now just need to implement it in javascript.

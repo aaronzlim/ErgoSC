@@ -1,4 +1,4 @@
-Name: ErgSC
+Name: ErgoSC
 
 Author: Aaron Lim
 
