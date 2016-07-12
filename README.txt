@@ -1,4 +1,4 @@
-Name: Split Calculator
+Name: ErgSC
 
 Author: Aaron Lim
 
