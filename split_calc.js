@@ -189,7 +189,19 @@ $(document).ready(function() {
 		return reset_window();
 	});
 	document.getElementById("weight_adjust_button").addEventListener("click", radio_toggle);
-	
+
+	document.getElementById("compare_button").addEventListener("click", function() {
+		chrome.app.window.create('compare.html', {
+			id: "compare",
+			bounds: {width: 515, height: 400},
+			resizable: false,
+			frame: {
+				type: "chrome",
+				color: "#008080"
+			}
+		});
+	});
+
 	var data = document.getElementsByName("data");
 	for(i=0; i < data.length; i++) {
 		data[i].addEventListener("keypress", function(e) {

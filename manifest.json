@@ -11,7 +11,7 @@
 		},
 		"content_scripts": [{
 			"css": ["window.css"],
-			"js": ["jquery-3.0.0.min.js", "split_calc.js"]
+			"js": ["compare.js","jquery-3.0.0.min.js", "split_calc.js"]
 		}]
 	},
 	"icons": { "16": "icons/calculator-16.png", "128": "icons/calculator-128.png"}

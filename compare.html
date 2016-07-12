@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Weight Adjusted Comparison</title>
+		<link rel="stylesheet" text="text/css" href="window.css">
+	</head>
+
+	<body>
+		<div id="header">
+			<h1>Weight Adjusted Comparison</h1>
+		</div>
+
+		<div id="section">
+			<br/>
+			<br/>
+			<div id="inputs">
+				<label for="weight1">Weight 1: </label>
+				<input type="number" id="weight1" min="0" placeholder="W1" align="left" autofocus>
+				<br/>
+				<br/>
+				<span id="score1">
+					<label for="time1">Time 1: </label>
+					<input type="number" id="minutes" min="0" max="120" name="data" placeholder="min" align="left" />
+					<font size="4">:</font>
+					<input type="number" id="seconds" min="0" max="59.99" name="data" placeholder="sec" align="left" />
+				</span>
+				<br/>
+				<br/>
+				<span id="radio_buttons">
+					<input type="radio" id="time" name="score_select" checked="true"/>
+					<label for="time">Time/Split</label>
+					<input type="radio" id="distance" name="score_select" />
+					<label for="distance">Distance</label>
+				</span>
+				<br/>
+				<br/>
+				<label for="weight2">Weight 2: </label>
+				<input type="number" id="weight2" min="0" name="data" placeholder="W2" align="left" />
+			</div>
+		</div>
+
+		<div id="aside">
+			<p id="results"></p>
+		</div>
+
+		<div id="footer">
+			<br/>
+			<button id="compare_button" name="button">Compare</button>
+			<button id="help_button" name="button">Help</button>
+
+		</div>
+
+		<script src="jquery-3.0.0.min.js"></script>
+		<script src="compare.js"></script>
+	</body>
+</html>
