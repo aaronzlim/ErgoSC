@@ -1,6 +1,6 @@
 {
 	"name": "ErgoSC",
-	"description": "Ergometer Split Calculator allows you to calculate raw and weight adjusted split times, which can be normalized to reflect one's potential speed in an 8+ or 4- under reasonable conditions.",
+	"description": "Ergometer Split Calculator for raw and weight adjusted scores.",
 	"version": "1.0.0",
 	"manifest_version": 2,
 	"default_locale": "en",
