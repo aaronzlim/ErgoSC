@@ -36,7 +36,7 @@ function getSplit(time, distance) {
 
 function weight_adjust(weight, score_type, score) {
 	var norm = document.getElementById("norm8").checked ? 270:170;
-	var wa_factor = Math.pow((weight / norm), 0.222).toFixed(3);
+	var wa_factor = Math.pow((weight / norm), 0.222);
 
 	if(score_type == "time") {
 		var wa_time = wa_factor*Number(score);
@@ -133,7 +133,7 @@ function main() {
 	return event.preventDefault();
 }
 
-function radio_toggle() {
+function wa_toggle() {
 	r_on = document.getElementById("weight_adjust_button").checked;
 	weight_visible = document.getElementById("weight_cell").style.display;
 	if (r_on && (weight_visible == 'none')) {
@@ -175,6 +175,15 @@ function reset_window() {
 	return event.preventDefault();
 }
 
+function handle_keypress(e) {
+	var key = e.which || e.keyCode;
+	if (key === 13) {
+		// Enter Key	
+		return main();
+	}
+	return false;
+}
+
 // Once page has loaded listen for button events.
 $(document).ready(function() {
 	
@@ -188,7 +197,7 @@ $(document).ready(function() {
 		document.getElementById("reset_button").blur();
 		return reset_window();
 	});
-	document.getElementById("weight_adjust_button").addEventListener("click", radio_toggle);
+	document.getElementById("weight_adjust_button").addEventListener("click", wa_toggle);
 
 	document.getElementById("compare_button").addEventListener("click", function() {
 		chrome.app.window.create('compare.html', {
@@ -205,12 +214,7 @@ $(document).ready(function() {
 	var data = document.getElementsByName("data");
 	for(i=0; i < data.length; i++) {
 		data[i].addEventListener("keypress", function(e) {
-			var key = e.which || e.keyCode;
-			if (key === 13) {
-				return main();
-			} else {
-				return false;
-			}
+			return handle_keypress(e);
 		});
 	}
 });

@@ -17,11 +17,25 @@ function switch_to_time() {
 
 }
 
+function add_time_listener() {
+	document.getElementById("minutes").addEventListener("keypress", function(e) {
+		return handle_keypress(e);
+	});
+	document.getElementById("seconds").addEventListener("keypress", function(e) {
+		return handle_keypress(e);
+	});
+}
+
 function switch_to_distance() {
 		document.getElementById("score1").innerHTML = "<label for='distance1'>Distance 1 (meters): </label>" +
 												"<input type='number' id='distance1' name='data' min='0'" +
 												" placeholder='Dist' align='left' />";
+}
 
+function add_distance_listener() {
+	document.getElementById("distance1").addEventListener("keypress", function(e) {
+		return handle_keypress(e);
+	});
 }
 
 function score_toggle() {
@@ -33,11 +47,13 @@ function score_toggle() {
 		$("#score1").fadeOut("fast");
 		setTimeout(switch_to_distance, 150);
 		$("#score1").fadeIn("fast");
+		setTimeout(add_distance_listener, 155);
 	} else if (!displaying_time && time_button_checked) {
 		// Switch to displaying the time input
 		$("#score1").fadeOut("fast");
 		setTimeout(switch_to_time, 150);
 		$("#score1").fadeIn("fast");
+		setTimeout(add_time_listener, 155);
 	}
 	return false;
 }
@@ -62,12 +78,11 @@ function cellError() {
 }
 
 function compare_score(weight1, weight2, score, score_type) {
-	var normalization = document.getElementById("norm8").checked ? 270:170;
-	var wa_factor1 = Math.pow((weight1/normalization), 0.222);
-	var wa_factor2 = Math.pow((weight2/normalization), 0.222);
-	var score_to_beat = wa_factor1*score;
-
-	var score_needed = 0
+	var wa_factor1 = Math.pow((weight1/270), 0.222);
+	var wa_factor2 = Math.pow((weight2/270), 0.222);
+	var score_to_beat = score_type == "time" ? score*wa_factor1:score/wa_factor1;
+	
+var score_needed = 0
 	if (score_type == "time") {
 		while ((score_needed*wa_factor2) < score_to_beat) {
 			score_needed += 0.001;
@@ -96,7 +111,10 @@ function compare() {
 		if (!document.getElementById("minutes").value || !document.getElementById("seconds").value) {
 			cellError();
 			return event.preventDefault();
-		} else if (!document.getElementById("distance1").value) {cellError(); return event.preventDefault();}
+		} else if (document.getElementById("distance1") != null && !document.getElementById("distance1").value) {
+			cellError(); 
+			return event.preventDefault();
+		}
 	}
 
 	if (displaying_time) {
@@ -112,22 +130,29 @@ function compare() {
 			score_str += "0";
 		}
 		score_str += new_second.toString();
-		document.getElementById("results").innerHTML = "In order to beat Rower1 weight adjusted you must pull a raw score faster than:<br/><br/>" + score_str;
+		document.getElementById("results").innerHTML = "In order to beat Rower1 weight adjusted you must pull a " +
+													"raw score faster than:<br/><br/>" + score_str;
 		
 	} else {
 		// Comparing distance
 		distance = document.getElementById("distance1").value;
 		score_to_beat = compare_score(weight1, weight2, distance, "distance").toFixed(3).toString();
-		document.getElementById("results").innerHTML = "In order to beat Rower1 weight adjusted you must pull a raw score greater than:<br/><br/>" + score_to_beat;
+		document.getElementById("results").innerHTML = "In order to beat Rower1 weight adjusted you must " +
+													"pull a raw score greater than:<br/><br/>" + score_to_beat +
+													" meters";
 	}
 
 	return event.preventDefault();
 }
 
-// PROBLEM //
-// KEEP REPLACING THE TIME CELL AND DISTANCE CELL
-// WHICH CANCELS THE EVENT LISTENER
-// NEED TO KEEP BOTH ON SCREEN AND JUST FADE THEM IN AND OUT
+function handle_keypress(e) {
+	var key = e.which || e.keyCode;
+	if (key === 13) {
+		return compare();
+	} else {
+		return false;
+	}
+}
 
 $(document).ready(function() {
 
@@ -138,12 +163,7 @@ $(document).ready(function() {
 	var data = document.getElementsByName("data");
 	for(i=0; i<data.length; i++) {
 		data[i].addEventListener("keypress", function(e) {
-			var key = e.which || e.keyCode;
-			if (key === 13) {
-				return compare();
-			} else {
-				return false;
-			}
+			return handle_keypress(e);
 		});
 	}
 
