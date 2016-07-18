@@ -11,14 +11,20 @@
 
 		<div id="section">
 			<br/>
-			<label for="minutes">Time:</label>
+			<label for="minutes">Time: </label>
 			<input type="number" id="minutes" min="0" max="120" name="data" placeholder="min" align="left" autofocus> 
-			<font size="4">:</font>
+			<font size="4"> : </font>
 			<input type="number" id="seconds" min="0" max="59.99" name="data" placeholder="sec" align="left" />
 			<br>
 			<br>
-			<label for="distance">Distance (meters):</label>
-			<input type="number" id="distance" min="0" name="data" placeholder="Dist" align="left" />
+			<label for="distance">Distance (meters): </label>
+			<input type="number" id="distance" min="0" name="data" placeholder="dist" align="left" />
+			<br/>
+			<br/>
+			<label for="split_minute">Split: </label>
+			<input type="number" id="split_minute" min="0" name="data" placeholder="min" align="left" />
+			<font size="4"> : </font>
+			<input type="number" id="split_second" min="0" name="data" placeholder="sec" align="left" />
 			<br/>
 			<br/>
 			<div id="weight_cell" style="display: none">
@@ -27,8 +33,8 @@
 			</div>
 		</div>
 		<div id="aside">
-			<p id="split">Split:</p>
-			<p id="weight_adjusted"></p>
+			<p id="output" name="outputs">Results:</p>
+			<p id="weight_adjusted" name="outputs"></p>
 		</div>
 		<div id="footer">
 			<button id="calc_button" name="Button">Calculate</button>
