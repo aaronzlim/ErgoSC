@@ -1,0 +1,38 @@
+body {
+	padding-top: 120px;
+	background: azure;
+	color: slategrey;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+h1 {
+	font-size: 60px;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+p {
+	font-size: 16px;
+	padding-left: 100px;
+}
+
+footer {
+
+}
+
+#topbar{
+	position: fixed;
+	top: 60px;
+	left: 0;
+	width: 100%;
+	height: 60px;
+	background-color: teal;
+	color: black;
+	text-align: center;
+}
+
+#indent_wrapper {
+	padding-left: 120px;
+}
