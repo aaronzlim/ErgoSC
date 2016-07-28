@@ -5,15 +5,35 @@
 </head>
 
 <body>
-	<div id="topbar"></div>
+	<div id="topbar0">
+		<br/>
+	</div>
+	<div id="topbar1">
+		<br/>
+		<a href="https://github.com/aaronzlim/ErgoSC">View Source on Github</a> | 
+		<a href="https://chrome.google.com/webstore/detail/ergosc/feceklapoogjgcobpcjgegaijimjhgpf">Download from Chrome Webstore<a/>
+	</div>
 	
-	<div id="indent_wrapper">
+	<div id="left_padding_wrapper">
+		<div style="float: left;">
+			<img src="figures/ErgoSC_icon_128.png" alt="ErgoSC Icon" style="width:128px;height:128px;">
+		</div>
 		<h1>ErgoSC</h1>
+	</div>
+	
+	<br/>
+	<br/>
 
-		<p>TESTING PARAGRAPHS</p>
-
+	<div style="font-size:40px; text-align:center;">
+		IN DEVELOPMENT
 	</div>
 
 </body>
+
+
+<div class="footer">
+	<br/>
+	Contact: azl4.dev@gmail.com
+</div>
 
 </html>
