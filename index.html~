@@ -23,7 +23,17 @@
 	
 	<br/>
 	<br/>
+	
+	<!-- Put Image Here -->
 
+	<div class="article">
+		The Ergometer Split Calculator is a google chrome application that allows you to calculate raw and weight adjusted
+		splits, times, and distances from the comfort of your desktop.
+		<br/>
+		<br/>
+		No internet connection required.
+	</div>
+	<br/>
 	<div style="font-size:40px; text-align:center;">
 		IN DEVELOPMENT
 	</div>
